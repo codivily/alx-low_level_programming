@@ -10,6 +10,7 @@ void print_number(int n)
 {
 	int pwr_of_10 = 1;
 	int first_digit = 0;
+	int tmp = 0;
 
 	if (n < 0)
 	{
@@ -17,22 +18,22 @@ void print_number(int n)
 		_putchar('-');
 	}
 
-	if (n == 0)
+	pwr_of_10 = 1;
+	tmp = n;
+	while (tmp)
 	{
-		_putchar('0' + n);
+		pwr_of_10 *= 10;
+		tmp /= 10;
 	}
-	else
-	{
-		pwr_of_10 = 1;
-		while (n / pwr_of_10)
-			pwr_of_10 *= 10;
 
-		while (pwr_of_10 != 1)
-		{
-			pwr_of_10 /= 10;
-			first_digit = n / pwr_of_10;
-			_putchar('0' + first_digit);
-			n -= (first_digit * pwr_of_10);
-		}
+	tmp = n;
+	while (pwr_of_10)
+	{
+		pwr_of_10 /= 10;
+		if (!pwr_of_10 && n != 0)
+			break;
+		first_digit = tmp / (pwr_of_10 ? pwr_of_10 : 1);
+		_putchar('0' + first_digit);
+		tmp -= (first_digit * pwr_of_10);
 	}
 }
