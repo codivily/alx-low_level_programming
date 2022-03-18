@@ -9,9 +9,9 @@
 void more_numbers(void)
 {
 	int n = 0;
-	int counter = 0;
+	int counter = 10;
 
-	for (; counter < 14; counter++)
+	while (counter--)
 	{
 		for (n = 0; n <= 14; n++)
 		{
