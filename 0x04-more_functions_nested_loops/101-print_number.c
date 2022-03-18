@@ -8,32 +8,37 @@
  */
 void print_number(int n)
 {
-	int pwr_of_10 = 1;
-	int first_digit = 0;
-	int tmp = 0;
+	unsigned int pwr_of_10 = 1;
+	unsigned int first_digit = 0;
+	unsigned int tmp = 0;
+	unsigned int num = n;
 
 	if (n < 0)
 	{
-		n *= (-1);
+		num = -n;
 		_putchar('-');
 	}
 
 	pwr_of_10 = 1;
-	tmp = n;
+	tmp = num;
 	while (tmp)
 	{
 		pwr_of_10 *= 10;
 		tmp /= 10;
 	}
 
-	tmp = n;
+	tmp = num;
 	while (pwr_of_10)
 	{
 		pwr_of_10 /= 10;
-		if (!pwr_of_10 && n != 0)
-			break;
-		first_digit = tmp / (pwr_of_10 ? pwr_of_10 : 1);
+		if (!pwr_of_10)
+			pwr_of_10 = 1;
+
+		first_digit = tmp / pwr_of_10;
 		_putchar('0' + first_digit);
-		tmp -= (first_digit * pwr_of_10);
+		tmp = tmp - (first_digit * pwr_of_10);
+
+		if (tmp == 0)
+			break;
 	}
 }
