@@ -11,7 +11,7 @@ void print_square(int size)
 	int line = 0;
 	int col = 0;
 
-	if (size == 0)
+	if (size <= 0)
 		_putchar('\n');
 	else
 	{
