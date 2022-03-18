@@ -8,9 +8,6 @@
  */
 void print_number(int n)
 {
-	unsigned int pwr_of_10 = 1;
-	unsigned int first_digit = 0;
-	unsigned int tmp = 0;
 	unsigned int num = n;
 
 	if (n < 0)
@@ -19,26 +16,9 @@ void print_number(int n)
 		_putchar('-');
 	}
 
-	pwr_of_10 = 1;
-	tmp = num;
-	while (tmp)
-	{
-		pwr_of_10 *= 10;
-		tmp /= 10;
-	}
+	if ((num / 10) > 0)
+		print_number(num / 10);
 
-	tmp = num;
-	while (pwr_of_10)
-	{
-		pwr_of_10 /= 10;
-		if (!pwr_of_10)
-			pwr_of_10 = 1;
-
-		first_digit = tmp / pwr_of_10;
-		_putchar('0' + first_digit);
-		tmp = tmp - (first_digit * pwr_of_10);
-
-		if (tmp == 0)
-			break;
-	}
+	_putchar((num % 10) + '0');
 }
+
