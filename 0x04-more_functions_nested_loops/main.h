@@ -12,5 +12,6 @@ void print_diagonal(int);
 void print_square(int);
 void print_triangle(int);
 int _putchar(char);
+void print_number(int);
 
 #endif /* MAIN_H */
