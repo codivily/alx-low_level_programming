@@ -20,11 +20,15 @@ void puts_half(char *str)
 	}
 
 	if (i % 2 == 1)
-		half_length = (i - 1) / 2;
+		p = str + (i - 1) / 2;
 	else
-		half_length = i / 2;
+		p = str + (i / 2);
 
-	for (i = 0; i < half_length; i++)
-		_putchar(*(str + i));
+	while (*p != '\0')
+	{
+		_putchar(*p);
+		p++;
+	}
+
 	_putchar('\n');
 }
