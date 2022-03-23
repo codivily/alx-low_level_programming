@@ -17,15 +17,15 @@ char *leet(char *s)
 		nums[i] = '\0';
 
 	nums[0] = '4';
-	nums[32] = '4';
+	nums[33] = '4';
 	nums[4] = '3';
-	nums[36] = '3';
+	nums[37] = '3';
 	nums[14] = '0';
-	nums[46] = '0';
+	nums[47] = '0';
 	nums[19] = '7';
-	nums[53] = '7';
+	nums[52] = '7';
 	nums[11] = '1';
-	nums[43] = '1';
+	nums[44] = '1';
 
 	while (*p != '\0')
 	{
