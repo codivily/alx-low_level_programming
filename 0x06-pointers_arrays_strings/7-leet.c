@@ -31,7 +31,7 @@ char *leet(char *s)
 	{
 		i = (*p) - 'A';
 
-		if (i >= 0 && i < 60 && nums[i] != '\0')
+		if (i >= 0 && i < 58 && nums[i] != '\0')
 			*p = nums[i];
 		p++;
 	}
