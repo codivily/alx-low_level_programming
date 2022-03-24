@@ -5,14 +5,14 @@
  *
  * Return: a pointer to the string
  */
-char * string_toupper(char *s)
+char *string_toupper(char *s)
 {
 	char *p = s;
 
 	while (*p != '\0')
 	{
-		if ('A' <= *p && *p <= 'Z')
-			*p = 'a' + ('A' - *p);
+		if ('a' <= *p && *p <= 'z')
+			*p = 'A' + ('a' - *p);
 		p++;
 	}
 
