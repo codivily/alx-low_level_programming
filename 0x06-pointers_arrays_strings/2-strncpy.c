@@ -18,7 +18,8 @@ char *_strncpy(char *dest, char *src, int n)
 		n--;
 	}
 
-	*dest = *src;
+	if (n > 0 && *src == '\0')
+		*dest = '\0';
 
 	return (ret);
 }
