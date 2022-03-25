@@ -1,10 +1,10 @@
 #include <stddef.h>
 
 /**
- * cap_string - capitalizes all words of a string
- * @s: the string
+ *cap_string - capitalizes all words of a string
+ *@s: the string
  *
- * Return: A pointer to the string
+ *Return: A pointer to the string
  */
 char *cap_string(char *s)
 {
@@ -15,7 +15,8 @@ char *cap_string(char *s)
 	while (*s != '\0')
 	{
 		if ((sep == NULL || *sep != '\0') && 'a' <= *s && *s <= 'z')
-		       *s = 'A' + *s - 'a';
+			*
+			s = 'A' + *s - 'a';
 
 		sep = seps;
 		while (*sep != '\0' && *sep != *s)
