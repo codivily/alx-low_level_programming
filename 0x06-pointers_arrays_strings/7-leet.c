@@ -35,7 +35,6 @@ char *leet(char *s)
 			*p = nums[i];
 		p++;
 	}
-	printf("\n");
 
 	return (s);
 }
