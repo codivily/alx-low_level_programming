@@ -1,3 +1,4 @@
+#include <stddef.h>
 
 /**
  * cap_string - capitalizes all words of a string
@@ -7,24 +8,20 @@
  */
 char *cap_string(char *s)
 {
-	char *separators = " \t\n\r,;.!?\"(){}";
-	int sep_index = 0;
-	char *p = s;
-	char prev_char = '\0';
+	char *seps = " \t\n\r,;.!?\"(){}";
+	char *ret = s;
+	char *sep = NULL;
 
-	while (*p != '\0')
+	while (*s != '\0')
 	{
-		sep_index = 0;
+		if ((sep == NULL || *sep != '\0') && 'a' <= *s && *s <= 'z')
+		       *s = 'A' + *s - 'a';
 
-		while (prev_char != separators[sep_index])
-			sep_index++;
-
-		if (prev_char != '\0' && 'a' <= *p && *p <= 'z')
-			*p = 'A' + ('a' - *p);
-
-		prev_char = *p;
-		p++;
+		sep = seps;
+		while (*sep != '\0' && *sep != *s)
+			sep++;
+		s++;
 	}
 
-	return (s);
+	return (ret);
 }
