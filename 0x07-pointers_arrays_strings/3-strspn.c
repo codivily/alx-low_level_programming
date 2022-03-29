@@ -1,4 +1,4 @@
-
+#include <stddef.h>
 /**
  * _strspn - gets the length of a prefix substring
  * @s: the string
@@ -8,17 +8,20 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	int length = 0;
+	int num = 0;
+	char *p = NULL;
 
-	while (*s != '\0' && *s != *accept)
-		s++;
-
-	while (*s != '\0' && *accept != '\0' && *s == *accept)
+	while (*s)
 	{
+		for (p = accept; *p != '\0' && *p != *s; p++)
+			;
+
+		if (*p)
+			num++;
+		else
+			break;
 		s++;
-		accept++;
-		length++;
 	}
 
-	return (length);
+	return (num);
 }
