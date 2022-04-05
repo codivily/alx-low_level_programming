@@ -11,7 +11,6 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *s = NULL;
-	char *tmp = NULL;
 	unsigned int s_len = 0;
 	unsigned int i = 0;
 
@@ -34,16 +33,15 @@ char *str_concat(char *s1, char *s2)
 	/* copying s1 & s2 */
 	if (s != NULL)
 	{
-		tmp = s;
 		i = 0;
 
 		while (*s1 != '\0')
-			*(tmp + (i++)) = *(s1++);
+			s[i++] = *(s1++);
 
 		while (*s2 != '\0')
-			*(tmp + (i++)) = *(s2++);
+			s[i++] = *(s2++);
 
-		*tmp = '\0';
+		s[i] = '\0';
 	}
 
 	return (s);
