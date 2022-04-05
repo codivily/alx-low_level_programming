@@ -35,12 +35,13 @@ char *str_concat(char *s1, char *s2)
 	if (s != NULL)
 	{
 		tmp = s;
+		i = 0;
 
 		while (*s1 != '\0')
-			*(tmp++) = *(s1++);
+			*(tmp + (i++)) = *(s1++);
 
 		while (*s2 != '\0')
-			*(tmp++) = *(s2++);
+			*(tmp + (i++)) = *(s2++);
 
 		*tmp = '\0';
 	}
