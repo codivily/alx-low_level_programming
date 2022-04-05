@@ -3,24 +3,8 @@
 #include <string.h>
 
 
-/**
- * itoa - convert an integer to a string
- * @val: An integer
- * @base: An base
- *
- * Return: the converted string
- */
-char *itao(int val, int base)
-{
-	static char buffer[32] = {0};
+char *number_to_string(int val, int base);
 
-	int i = 30;
-
-	for (; val && i; --i, val /= base)
-		buffer[i] = "0123456789abcdef"[val % base];
-
-	return (buffer + i + 1);
-}
 /**
  * main - A program that adds positive numbers
  * @argc: arugment count
@@ -40,7 +24,7 @@ int main(int argc, char **argv)
 		str = argv[argc - 1];
 		num = atoi(str);
 
-		if (num >= 0 && strlen(str) == strlen(itao(num, 10)))
+		if (num >= 0 && strlen(str) == strlen(number_to_string(num, 10)))
 			sum += num;
 		else
 			break;
@@ -60,3 +44,23 @@ int main(int argc, char **argv)
 	return (0);
 
 }
+
+/**
+ * number_to_string - convert int to string
+ * @val: An integer
+ * @base: An integer
+ *
+ * Return: A pointer to the buffer
+ */
+char *number_to_string(int val, int base)
+{
+	static char buffer[32] = {0};
+
+	int i = 30;
+
+	for (; val && i; --i, val /= base)
+		buffer[i] = "0123456789abcdef"[val % base];
+
+	return (buffer + i + 1);
+}
+
