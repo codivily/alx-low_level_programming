@@ -18,14 +18,14 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 
 	/* allocate heigh */
-	**array = (int **)malloc(sizeof(*array) * height);
+	array = malloc(sizeof(*array) * height);
 
 	if (array != NULL)
 	{
 		/* allocate the height */
 		for (y = 0; y < height; y++)
 		{
-			array[y] = (int **)malloc(sizeof(**array) * width);
+			array[y] = malloc(sizeof(**array) * width);
 		
 			if (array[y] == NULL)
 			{
