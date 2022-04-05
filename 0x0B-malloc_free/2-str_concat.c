@@ -15,17 +15,14 @@ char *str_concat(char *s1, char *s2)
 	unsigned int i = 0;
 
 	/* compute s1 & s2 lenghts */
-	while (s1 && *(s1 + i) != '\0')
+	while (s1 != NULL && *(s1 + i) != '\0')
 		i++;
 	s_len = i;
 
 	i = 0;
-	while (s2 && *(s2 + i) != '\0')
+	while (s2 != NULL && *(s2 + i) != '\0')
 		i++;
 	s_len += i;
-
-	if (s_len == 0)
-		return (NULL);
 
 	/* allocating memory */
 	s = malloc(sizeof(char) * (s_len + 1));
