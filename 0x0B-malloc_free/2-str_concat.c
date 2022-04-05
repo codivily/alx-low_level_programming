@@ -21,12 +21,12 @@ char *str_concat(char *s1, char *s2)
 	/* compute s1 & s2 lenghts */
 	while (*(s1 + i) != '\0')
 		i++;
-	s_len = i - 1;
+	s_len = i;
 
 	i = 0;
 	while (*(s2 + i) != '\0')
 		i++;
-	s_len += i - 1;
+	s_len += i;
 
 	/* allocating memory */
 	s = malloc(sizeof(char) * (s_len + 1));
