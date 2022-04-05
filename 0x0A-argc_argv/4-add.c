@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 	int sum = 0;
 	int num = 0;
 
-	while (argc > 1)
+	while (argc >= 1)
 	{
 		num = atoi(argv[argc - 1]);
 
