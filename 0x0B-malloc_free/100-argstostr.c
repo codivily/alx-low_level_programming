@@ -10,11 +10,11 @@
  */
 char *argstostr(int ac, char **av)
 {
-	char *s = NULL;
-	int len = 0;
-	int x = 0;
-	int i = 0;
-	char *v = NULL;
+	char *v = NULL, *s = NULL;
+	int len = 0, x = 0, i = 0;
+
+	if (ac == 0 || av == NULL)
+		return (NULL);
 
 	for (i = 0; i < ac; i++)
 	{
