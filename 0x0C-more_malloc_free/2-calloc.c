@@ -10,8 +10,8 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	if ((nmemb & size) == 0)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	return (malloc(nmemb * size));
+	return (malloc(sizeof(char) * nmemb * size));
 }
