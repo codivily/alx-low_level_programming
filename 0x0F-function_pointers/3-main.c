@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 	int a = 0, b = 0;
 	int (*op)(int, int) = NULL;
 
-	if (argc != 4)
+	if (argc < 4)
 	{
 		printf("Error\n");
 		return (-1);
