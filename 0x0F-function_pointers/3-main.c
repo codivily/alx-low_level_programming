@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		return (-1);
 	}
-	
+
 	a = atoi(argv[1]);
 	op = get_op_func(argv[2]);
 	b = atoi(argv[3]);
