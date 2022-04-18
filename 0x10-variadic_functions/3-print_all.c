@@ -10,8 +10,7 @@
  */
 void print_all(const char * const format, ...)
 {
-	char *s = NULL;
-	char c;
+	char *s = NULL, c = '\0';
 	int i = 0;
 	va_list ap;
 
@@ -19,8 +18,8 @@ void print_all(const char * const format, ...)
 
 	while (format[i] != '\0')
 	{
-		c = format[i];
-		if (i != 0 && (c == 'c' || c == 'i' || c == 'f' || c == 's'))
+		c = format[i++];
+		if (i > 1 && (c == 'c' || c == 'i' || c == 'f' || c == 's'))
 			printf(", ");
 
 		switch (c)
@@ -44,7 +43,6 @@ void print_all(const char * const format, ...)
 				printf("%s", s);
 				break;
 		}
-		i++;
 	}
 
 	va_end(ap);
