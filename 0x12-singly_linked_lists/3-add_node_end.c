@@ -1,5 +1,6 @@
-#include <stddef.h>
+#include <stdlib.h>
 #include <string.h>
+#include "lists.h"
 
 
 /**
@@ -9,13 +10,13 @@
  *
  * Return:  Address of the new element
  */
-list_t *add_node_end(list_t **head, const *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *new_node = NULL;
 	list_t *tail = NULL;
 	unsigned int i = 0;
 
-	if (!head || !(*head))
+	if (!head)
 		return (NULL);
 
 	new_node = malloc(sizeof(list_t));
@@ -25,10 +26,15 @@ list_t *add_node_end(list_t **head, const *str)
 
 	tail = *head;
 
-	while (tail->next)
-		tail = tail->next;
+	if (tail)
+	{
+		while (tail->next)
+			tail = tail->next;
 
-	tail->next = new_node;
+		tail->next = new_node;
+	}
+	else
+		*head = new_node;
 
 	new_node->next = NULL;
 	new_node->str = NULL;
@@ -42,7 +48,7 @@ list_t *add_node_end(list_t **head, const *str)
 		while (str[i++])
 			;
 
-		new_node->len = i;
+		new_node->len = i - 1;
 	}
 
 	return (new_node);

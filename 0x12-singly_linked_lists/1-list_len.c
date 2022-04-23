@@ -1,3 +1,5 @@
+#include <stddef.h>
+#include "lists.h"
 
 /**
  * list_len = return the number of elements in a linked list
@@ -8,11 +10,10 @@
 size_t list_len(const list_t *h)
 {
 	int n = 0;
-	list_t *nd = h;
 
-	while (nd)
+	while (h)
 	{
-		nd = nd->next;
+		h = h->next;
 		n++;
 	}
 
