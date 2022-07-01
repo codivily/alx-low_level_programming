@@ -48,7 +48,7 @@ _shash_table_insert_sorted(shash_table_t *ht, shash_node_t *new_node)
 
 	cursor = ht->shead;
 
-	while (cursor && strcmp(new_node->key, cursor->key) >= 0)
+	while (cursor && strcmp(new_node->key, cursor->key) > 0)
 	{
 		cursor_prev = cursor;
 		cursor = cursor->snext;
@@ -129,6 +129,30 @@ shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	_shash_table_insert_sorted(ht, new_node);
 
 	return (1);
+}
+
+
+/**
+ * shash_table_get - Retrieves a value associated with a key
+ * @ht: The hash table
+ * @key: The key of the new element
+ *
+ * Return: Return the key value or NULL if key couldn't be found
+ */
+char *
+shash_table_get(const shash_table_t *ht, const char *key)
+{
+	shash_node_t *cursor = NULL;
+
+	if (!ht || !key || !(*key))
+		return (NULL);
+
+	cursor = ht->array[key_index((unsigned char *) key, ht->size)];
+
+	while (cursor && strcmp(key, cursor->key) != 0)
+		cursor = cursor->next;
+
+	return (cursor ? cursor->value : NULL);
 }
 
 /**
