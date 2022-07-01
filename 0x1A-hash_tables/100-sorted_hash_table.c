@@ -48,7 +48,7 @@ _shash_table_insert_sorted(shash_table_t *ht, shash_node_t *new_node)
 
 	cursor = ht->shead;
 
-	while (cursor && strcmp(new_node->key, cursor->key) > 0)
+	while (cursor && strcmp(new_node->key, cursor->key) >= 0)
 	{
 		cursor_prev = cursor;
 		cursor = cursor->snext;
