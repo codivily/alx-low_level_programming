@@ -6,18 +6,18 @@ SRC=main.c school.c
 OBJ=$(SRC:%.c=%.o)
 NAME=school
 
-all: ${OBJ} 
+all: ${OBJ}
 	${CC} ${OBJ} -o ${NAME}
 
-re: clean all
+re: oclean all
 
-clean: fclean oclean
+clean:
+	${RM} -f *~ ${NAME}
 
 oclean:
 	${RM} -f ${OBJ}
 
-fclean:
-	${RM} -f *~
+fclean: clean oclean
 
 %.o: %.c
-	${CC} -c $^ -o $@ 
+	${CC} -c $^ -o $@
