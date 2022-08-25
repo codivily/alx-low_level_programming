@@ -4,7 +4,12 @@ This module contains a function that returns
 the perimeter of the island
 """
 
+
 def island_perimeter(grid):
+    """
+    Returns the perimeter of the island
+    """
+
     r = 0
     """ horizontal scanning """
     for line in grid:
@@ -17,7 +22,7 @@ def island_perimeter(grid):
         """ right to left scanning """
         for cell in line[::-1]:
             if cell == 1:
-                r+= 1
+                r += 1
                 break
 
     if len(grid) == 0:
@@ -38,4 +43,3 @@ def island_perimeter(grid):
                 break
 
     return (r)
-
