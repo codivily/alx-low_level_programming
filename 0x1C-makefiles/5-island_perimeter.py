@@ -1,0 +1,41 @@
+#!/usr/bin/python3
+"""
+This module contains a function that returns
+the perimeter of the island
+"""
+
+def island_perimeter(grid):
+    r = 0
+    """ horizontal scanning """
+    for line in grid:
+        """ left to right scanning """
+        for cell in line:
+            if cell == 1:
+                r += 1
+                break
+
+        """ right to left scanning """
+        for cell in line[::-1]:
+            if cell == 1:
+                r+= 1
+                break
+
+    if len(grid) == 0:
+        return (r)
+
+    """ vertical scanning """
+    for x in range(len(grid[0])):
+        """ top bottom scanning """
+        for line in grid:
+            if line[x] == 1:
+                r += 1
+                break
+
+        """ bottom to scanning """
+        for line in grid[::-1]:
+            if line[x] == 1:
+                r += 1
+                break
+
+    return (r)
+
