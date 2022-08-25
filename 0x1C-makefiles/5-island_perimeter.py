@@ -9,6 +9,8 @@ def island_perimeter(grid):
     """
     Returns the perimeter of the island
     """
+    if not grid:
+        return (0)
 
     r = 0
     """ horizontal scanning """
@@ -24,9 +26,6 @@ def island_perimeter(grid):
             if cell == 1:
                 r += 1
                 break
-
-    if len(grid) == 0:
-        return (r)
 
     """ vertical scanning """
     for x in range(len(grid[0])):
