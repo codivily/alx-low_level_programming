@@ -1,0 +1,23 @@
+.PHONY: all re fclean oclean
+
+CC=gcc
+RM=rm
+SRC=main.c school.c
+OBJ=$(SRC:%.c=%.o)
+NAME=school
+
+all: ${OBJ} 
+	${CC} ${OBJ} -o ${NAME}
+
+re: clean all
+
+clean: fclean oclean
+
+oclean:
+	${RM} -f ${OBJ}
+
+fclean:
+	${RM} -f *~
+
+%.o: %.c
+	${CC} -c $^ -o $@ 
