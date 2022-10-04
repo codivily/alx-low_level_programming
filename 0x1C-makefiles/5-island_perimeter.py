@@ -29,13 +29,13 @@ def island_perimeter(grid):
 
     """ vertical scanning """
     for x in range(len(grid[0])):
-        """ top bottom scanning """
+        """ top to bottom scanning """
         for line in grid:
             if line[x] == 1:
                 r += 1
                 break
 
-        """ bottom to scanning """
+        """ bottom to top scanning """
         for line in grid[::-1]:
             if line[x] == 1:
                 r += 1
